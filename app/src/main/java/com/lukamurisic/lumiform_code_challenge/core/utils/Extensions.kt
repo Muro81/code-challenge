@@ -24,3 +24,5 @@ inline fun <reified T> Flow<T>.observeWithLifecycle(
         }
     }
 }
+
+fun String?.toNonNull() : String = this ?: ""

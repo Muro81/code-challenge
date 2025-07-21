@@ -17,7 +17,6 @@ import com.lukamurisic.lumiform_code_challenge.core.utils.CustomModifiers
 import com.lukamurisic.lumiform_code_challenge.core.utils.rememberAppState
 import com.lukamurisic.lumiform_code_challenge.ui.theme.LumiformCodeChallenge
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -43,9 +42,8 @@ class MainActivity : ComponentActivity() {
                     CodeChallengeNavigation(
                         navController = navController,
                         navigator = navigator,
-                        recreateApp = {
-                            Timber.e("RECREATE")
-                            recreate()
+                        showSnackBar = { message ->
+                            appState.showSnackBar(message)
                         }
                     )
                 }
@@ -62,6 +60,4 @@ class MainActivity : ComponentActivity() {
             permission
         ) == PermissionChecker.PERMISSION_GRANTED
     }
-
-
 }

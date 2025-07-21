@@ -1,8 +1,6 @@
 package com.lukamurisic.lumiform_code_challenge.core.utils.networking
 
-import llc.amplitudo.monte_put.R
 import retrofit2.Response
-import timber.log.Timber
 
 /**
 This is the function we will use to turn the API response to our custom Resource

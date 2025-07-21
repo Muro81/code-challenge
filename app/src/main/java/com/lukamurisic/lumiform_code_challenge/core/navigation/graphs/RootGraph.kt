@@ -1,17 +1,16 @@
 package com.lukamurisic.lumiform_code_challenge.core.navigation.graphs
 
-import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.navigation
 import com.lukamurisic.lumiform_code_challenge.core.navigation.Screen
-import com.lukamurisic.lumiform_code_challenge.core.navigation.destinations.welcomeScreenComposable
+import com.lukamurisic.lumiform_code_challenge.core.navigation.destinations.mainScreenComposable
 
 fun NavGraphBuilder.rootNavGraph(
-    navController: NavController,
+    showSnackBar: (String) -> Unit
 ) {
     navigation<Screen.RootGraph>(
-        startDestination = Screen.WelcomeScreen
+        startDestination = Screen.MainScreen
     ) {
-        welcomeScreenComposable(navController = navController)
+        mainScreenComposable(showSnackBar = showSnackBar)
     }
 }

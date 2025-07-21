@@ -33,6 +33,13 @@ android {
             )
         }
     }
+    flavorDimensions += "apiUrl"
+    productFlavors {
+        create("apiDev") {
+            dimension = "apiUrl"
+            buildConfigField("String", "BASE_URL", "\"https://mocki.io/v1/\"")
+        }
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11

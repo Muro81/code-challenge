@@ -1,0 +1,3 @@
+package com.lukamurisic.lumiform_code_challenge.presentation.base
+
+interface BaseEvent

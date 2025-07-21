@@ -15,9 +15,9 @@ sealed interface Screen {
     data object RootGraph : Screen
 
     @Serializable
-    data object WelcomeScreen : Screen
+    data object MainScreen : Screen
 
     @Serializable
-    data object MainScreen : Screen
+    data class QuestionImageScreen(val imagePath : String,val title : String) : Screen
 }
 

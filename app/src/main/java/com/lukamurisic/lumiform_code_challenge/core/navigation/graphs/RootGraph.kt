@@ -4,6 +4,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.navigation
 import com.lukamurisic.lumiform_code_challenge.core.navigation.Screen
 import com.lukamurisic.lumiform_code_challenge.core.navigation.destinations.mainScreenComposable
+import com.lukamurisic.lumiform_code_challenge.core.navigation.destinations.questionImageScreenComposable
 
 fun NavGraphBuilder.rootNavGraph(
     showSnackBar: (String) -> Unit
@@ -12,5 +13,6 @@ fun NavGraphBuilder.rootNavGraph(
         startDestination = Screen.MainScreen
     ) {
         mainScreenComposable(showSnackBar = showSnackBar)
+        questionImageScreenComposable()
     }
 }

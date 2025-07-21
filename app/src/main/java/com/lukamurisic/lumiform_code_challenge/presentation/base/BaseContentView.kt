@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 
 @Composable
 fun BaseContentView(
@@ -46,17 +47,13 @@ fun BaseContentView(
                 .fillMaxSize()
                 .padding(innerPadding)
         ) {
-            content(viewState)
-
-
-
-
-            if (viewState.isLoading) {
+            if(!viewState.isLoading)content(viewState)
+            else {
                 CircularProgressIndicator(
                     modifier = Modifier.align(
                         alignment = Alignment.Center
                     ),
-                    color = MaterialTheme.colorScheme.onPrimary
+                    color = Color.Black
                 )
             }
         }

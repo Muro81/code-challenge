@@ -38,6 +38,9 @@ splash-screen = "1.0.1"
 timber = "5.0.1"
 truth = "1.1.5"
 
+# Room
+room = "2.6.1"
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -90,6 +93,10 @@ retrofit2-converter-moshi = { module = "com.squareup.retrofit2:converter-moshi",
 
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 truth = { module = "com.google.truth:truth", version.ref =  "truth"}
+
+room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 
 [bundles]
 # Defines groups of libraries

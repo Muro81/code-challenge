@@ -109,5 +109,9 @@ dependencies {
     implementation(libs.bundles.okHttp)
     implementation(libs.bundles.lifecycle)
 
+    implementation(libs.room.runtime)
+    ksp(libs.room.compiler)
+    implementation(libs.room.ktx)
+
 
 }

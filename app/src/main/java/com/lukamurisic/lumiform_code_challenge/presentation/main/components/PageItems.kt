@@ -32,6 +32,7 @@ fun PageItems(
                                 .size(64.dp)
                                 .noRippleClickable{ onQuestionClick(pageItem) }
                         )
+                    else
                     Text(
                         text = pageItem.title,
                         fontSize = 10.sp,

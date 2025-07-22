@@ -1,6 +1,8 @@
 package com.lukamurisic.lumiform_code_challenge.di
 
 import android.app.Application
+import android.content.Context
+import androidx.room.Room
 import com.lukamurisic.lumiform_code_challenge.BuildConfig
 import dagger.Module
 import dagger.Provides
@@ -8,8 +10,11 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import com.lukamurisic.lumiform_code_challenge.core.utils.StringProvider
 import com.lukamurisic.lumiform_code_challenge.core.utils.StringProviderImpl
+import com.lukamurisic.lumiform_code_challenge.data.local.dao.ContentDao
+import com.lukamurisic.lumiform_code_challenge.data.local.db.ContentDatabase
 import com.lukamurisic.lumiform_code_challenge.data.remote.services.ApiService
 import com.squareup.moshi.Moshi
+import dagger.hilt.android.qualifiers.ApplicationContext
 import okhttp3.Dispatcher
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -59,4 +64,17 @@ object AppModule {
             .build()
             .create(ApiService::class.java)
     }
+
+    @Provides
+    @Singleton
+    fun provideDatabase(@ApplicationContext context : Context) : ContentDatabase{
+        return Room.databaseBuilder(
+            context,
+            ContentDatabase::class.java,
+            "content_database"
+        ).build()
+    }
+
+    @Provides
+    fun provideContentDao(db: ContentDatabase): ContentDao = db.contentDao()
 }

@@ -52,19 +52,32 @@ class MainViewModel @Inject constructor(
                     isLoading = true
                 )
             }
-            repository.getData().onSuccess { res ->
+            repository.getDataRemote().onSuccess { res ->
                 state.update {
                     it.copy(
                         pages = res
                     )
                 }
-                Timber.e("PAGES ARE ${state.value.pages}")
+                repository.insertPages(state.value.pages)
+                state.update {
+                    it.copy(
+                        isLoading = false
+                    )
+                }
             }.onError {
-                Timber.e("ERROR IS ${it.name}")
                 _snackBarChannel.send(it.name)
+                getPagesLocal()
             }
+
+        }
+    }
+
+    private fun getPagesLocal(){
+        viewModelScope.launch {
+            val pages = repository.getDataLocal()
             state.update {
                 it.copy(
+                    pages = pages,
                     isLoading = false
                 )
             }

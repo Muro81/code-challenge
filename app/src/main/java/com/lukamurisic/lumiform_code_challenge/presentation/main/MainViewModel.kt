@@ -11,7 +11,6 @@ import com.lukamurisic.lumiform_code_challenge.presentation.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -39,7 +38,10 @@ class MainViewModel @Inject constructor(
     private fun onImageClick(question: PageItem.Question) {
         viewModelScope.launch {
             navigator.navigateTo(
-                destination = QuestionImageScreen(imagePath = question.src ?: "", title = question.title)
+                destination = QuestionImageScreen(
+                    imagePath = question.src ?: "",
+                    title = question.title
+                )
             )
         }
     }
@@ -72,7 +74,7 @@ class MainViewModel @Inject constructor(
         }
     }
 
-    private fun getPagesLocal(){
+    private fun getPagesLocal() {
         viewModelScope.launch {
             val pages = repository.getDataLocal()
             state.update {

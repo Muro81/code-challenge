@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.lukamurisic.lumiform_code_challenge.core.utils.observeWithLifecycle
 import com.lukamurisic.lumiform_code_challenge.presentation.base.BaseContentView
+import com.lukamurisic.lumiform_code_challenge.presentation.main.components.EmptyContent
 import com.lukamurisic.lumiform_code_challenge.presentation.main.components.PageItems
 
 @Composable
@@ -37,6 +38,11 @@ fun MainScreen(
                 .fillMaxSize()
                 .padding(16.dp)
         ) {
+            if(state.pages.isEmpty()){
+                item {
+                    EmptyContent()
+                }
+            }
             items(state.pages) { page ->
                 Text(
                     text = page.title,

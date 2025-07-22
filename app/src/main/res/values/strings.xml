@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Lumiform code challenge</string>
+    <string name="no_items">Sorry we couldn\'t find what you were looking for!</string>
 </resources>

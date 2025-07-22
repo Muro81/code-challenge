@@ -9,7 +9,7 @@ import com.lukamurisic.lumiform_code_challenge.data.local.entity.SectionEntity
 
 
 @Database(
-    version = 1,
+    version = 2,
     exportSchema = false,
     entities = [
         PageEntity::class,
